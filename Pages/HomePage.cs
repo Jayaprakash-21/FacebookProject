@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using FacebookProject.BaseClass;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -9,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace FacebookProject.Pages
 {
-    class HomePage
+    class HomePage : Baseclass
     {
         IWebDriver driver;
         [FindsBy(How = How.XPath, Using = ".//*[@aria-label='Home']/span")]
-        IWebElement HomeBtn;
+         public IWebElement HomeBtn;
 
         [Obsolete]
         public HomePage(IWebDriver driver)

@@ -40,6 +40,9 @@
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RelevantCodes.ExtentReports, Version=1.4.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ExtentReports.2.41.0\lib\RelevantCodes.ExtentReports.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -57,16 +60,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass\Baseclass.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\ProfilePage.cs" />
     <Compile Include="Pages\SearchPage.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Extent-config.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+    <Folder Include="ScreenShot\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

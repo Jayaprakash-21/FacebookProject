@@ -1,14 +1,17 @@
-﻿using OpenQA.Selenium;
+﻿using FacebookProject.BaseClass;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FacebookProject.Pages
 {
-    class LoginPage
+    class LoginPage : Baseclass
     {
         IWebDriver driver;
         [FindsBy(How = How.Id, Using = "email")]
@@ -25,14 +28,25 @@ namespace FacebookProject.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        public void Login()
+        public void Login(string username,string password)
         {
             //login page with valid credentials
-            Email.SendKeys("jayaprakash778@gmail.com");
-            Password.SendKeys("J1a2y3@4$");
+            Email.SendKeys(username);
+            Password.SendKeys(password);
             Submit.Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5000);
         }
+        public void InvalidLogin(string username,string password)
+        {
+            Email.SendKeys(username);
+            Password.SendKeys(password);
+            Submit.Click();
+            IWebElement Alert=driver.FindElement(By.XPath(".//*[@role='alert']"));
+            Assert.AreEqual(Alert, "The email or phone number you’ve entered doesn’t match any account.Sign up for an account.");
+        }
+
+     
+
 
     }
 }

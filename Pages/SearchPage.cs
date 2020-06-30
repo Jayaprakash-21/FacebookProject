@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using FacebookProject.BaseClass;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FacebookProject.Pages
 {
-    class SearchPage
+    class SearchPage : Baseclass
     {
         IWebDriver driver;
 
@@ -28,9 +29,11 @@ namespace FacebookProject.Pages
             // to verify the search page
             Console.WriteLine(driver.Url);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3000);
-            SearchTab.Click();
+          //  SearchTab.Click();
             Console.WriteLine("Search page with credential");
-            CloseSearch.Click();
+         
+
+            
         }
     }
 }

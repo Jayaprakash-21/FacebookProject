@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using FacebookProject.BaseClass;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FacebookProject.Pages
 {
-    class ProfilePage
+    class ProfilePage : Baseclass
     {
         IWebDriver driver;
         [FindsBy(How = How.XPath, Using = ".//*[@aria-label='Account']/i")]
